@@ -17,13 +17,7 @@ The usage is as follows
 
 | Task                    | Command |
 |--------------------------|:--------:|
-| **Build** | ```bash
- bash ./script.sh bl 
- ``` |
-| **Debug** |	```bash
-  bash ./script.sh dl # you can replace dl with rl
-  ``` |
-| **Run existing build** | ```bash
-  bash ./script.sh r
-  ```    |
+| **Build** | `bash ./script.sh bl ` |
+| **Debug** |	`bash ./script.sh dl # you can replace dl with rl` |
+| **Run existing build** | `bash ./script.sh r`    |
 
