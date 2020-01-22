@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: Dalitso Sakala
-# Url: https://github.com/dalitsoSakala/mbcc.git
+# Url: https://github.com/dalitsoSakala/kotlin-bau.git
 
 #
 #
@@ -14,7 +14,6 @@
 #						./script.sh		(This file)
 #						./<App.jar>		(Build output)
 #						./temp			(Temporarily generated build directory)
-#
 ROOT=$(pwd)
 sourcesDir=Sources
 defaultDebugFileName=Debug
@@ -72,7 +71,7 @@ function lib-build(){
 function dl(){
 	merge $defaultDebugFileName
 	cd $ROOT
-	if [ -f $defaultDebugFileName.jar ]; then
+	if [ ! -d $defaultDebugFileName.jar ] && [ -f $defaultDebugFileName.jar ]; then
 		`kotlin $defaultDebugFileName.jar`
 		rm $defaultDebugFileName.jar
 	else
@@ -118,4 +117,3 @@ else echo  invalid params
 fi
 
 echo "Tasks Complete"
-
