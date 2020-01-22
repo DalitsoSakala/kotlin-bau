@@ -22,7 +22,7 @@ defaultBuildFileName=App
 function build(){
 	classPathScript=-cp $ROOT/Libraries/out/libs.jar
 	cd $ROOT
-	if [[ ! -d Libraries ]]; then
+	if [ ! -d Libraries ]; then
 		classPathScript=""
 	fi
 	echo "building source packages"
@@ -72,7 +72,7 @@ function lib-build(){
 function dl(){
 	merge $defaultDebugFileName
 	cd $ROOT
-	if [[ -f $defaultDebugFileName.jar ]]; then
+	if [ -f $defaultDebugFileName.jar ]; then
 		`kotlin $defaultDebugFileName.jar`
 		rm $defaultDebugFileName.jar
 	else
