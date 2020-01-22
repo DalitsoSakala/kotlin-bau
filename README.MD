@@ -1,5 +1,7 @@
 # A kotlin build automation system
 
+**VERSION 0.0.1**
+
 ## Implementations
 
 Current implementation is for Mac OS (Darwin) and GNU Linux
