@@ -18,16 +18,27 @@ ROOT=$(pwd)
 sourcesDir=Sources
 defaultDebugFileName=Debug
 defaultBuildFileName=App
+# This function is called to build source packages
 function build(){
 	classPathScript=-cp $ROOT/Libraries/out/libs.jar
+	subDirectoryPath=""
 	cd $ROOT
+	test ! -d Sources && echo Source files not found && exit -1
+	test ! -d Sources/main.kt && test ! -e Sources/main.kt && echo main file, \`main.kt\` not found && exit -1
 	if [ ! -d Libraries ]; then
 		classPathScript=""
 	fi
 	echo "building source packages"
 	cd $sourcesDir
+	subDirTested=0
+	files=$(dir)
+	for item in $files; do
+		if [ subDirTested == 0 ]; then
+			test -d $item && subDirectoryPath=*/*.kt && subDirTested=1
+		fi
+	done
 	`
-	kotlinc -include-runtime $classPathScript  -d $ROOT/$defaultBuildFileName.jar  main.kt */*.kt
+	kotlinc -include-runtime $classPathScript  -d $ROOT/$defaultBuildFileName.jar  main.kt $subDirectoryPath
 	`
 	cd $ROOT
 	echo "done."
